@@ -1,0 +1,33 @@
+
+<%= form_with model: @user do |f| %>
+    <div>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <% @user.errors.full_messages_for(:name).each do |message| %>
+        <div class="msg"><%= message %></div>
+        <% end %>
+    </div><br>
+    <div>
+        <%= f.label :Age %>
+        <%= f.text_field :age %>
+        <% @user.errors.full_messages_for(:age).each do |message| %>
+        <div class="msg"><%= message %></div>
+        <% end %>
+    </div><br>
+    <table class= "gender">
+      <tr>
+        <td><%= f.label :gender %></td>
+        <td><%= f.radio_button :gender, 'male' %></td>
+        <td><%= f.label :gender , :value => 'male' %></td>
+        <td><%= f.radio_button :gender, 'female' %></td>
+        <td><%= f.label :gender , :value => 'female' %></td>
+        <td><%= f.radio_button :gender, 'other' %></td>
+        <td><%= f.label :gender , :value => 'other' %></td>
+      </tr>
+    </table>
+        <% @user.errors.full_messages_for(:gender).each do |message| %>
+        <div class="msg"><%= message %></div>
+        <% end %>
+    <br>
+    <%= f.submit %>
+<% end %>
